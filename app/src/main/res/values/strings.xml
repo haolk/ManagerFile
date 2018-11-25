@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Clear Whatsapp</string>
+    <string name="action_settings">Settings</string>
+    <string name="selected_s">Selected: %s</string>
+    <string name="_0">0</string>
+    <string name="b">B</string>
+    <string name="total">Total</string>
+    <string name="clear_junk">Clear Junk</string>
+    <string name="safe_clear">Safe Clear</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="exclude_chat_history">Exclude Chat History</string>
+    <string name="chart">Chart</string>
+    <string name="photos">Photos</string>
+    <string name="manage_photos">Manage Photos</string>
+    <string name="videos">Videos</string>
+    <string name="manage_videos">Manage Videos</string>
+    <string name="audios">Audios</string>
+    <string name="manage_audios">Manage Audios</string>
+    <string name="files">Files</string>
+    <string name="manage_files">Manage Files</string>
+    <string name="databases">Databases</string>
+    <string name="manage_databases">Manage Databases</string>
+</resources>
