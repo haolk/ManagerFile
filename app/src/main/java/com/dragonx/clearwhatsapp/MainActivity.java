@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         List<File> audioSent = mStore.getFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/WhatsApp Audio/Sent",
                 new String[]{"mp3", "flac", "m4a"});
 
+        List<File> filePrivate = mStore.getFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/WhatsApp Documents/Private",
+                new String[]{"doc", "docx", "pdf"});
+        List<File> fileSent = mStore.getFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/WhatsApp Documents/Sent",
+                new String[]{"doc", "docx", "pdf"});
 
         List<File> databases = mStore.getFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/WhatsApp/Databases");
         Log.e("HAOHAO", "/WhatsApp/Media/WhatsApp Images/Private: " + imagesPrivate.size());
