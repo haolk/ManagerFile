@@ -1,4 +1,4 @@
-package com.dragonx.clearwhatsapp;
+package com.dragonx.clearwhatsapp.main;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -9,6 +9,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+
+import com.dragonx.clearwhatsapp.R;
+import com.dragonx.clearwhatsapp.Store;
+import com.dragonx.clearwhatsapp.ViewModel;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -39,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-//        MainActivity.this.getSupportLoaderManager().initLoader(LOADER_PICTURE, null, this);
-//        MainActivity.this.getSupportLoaderManager().initLoader(LOADER_PICTURE, null, this);
         List<File> imagesPrivate = mStore.getFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/WhatsApp/Media/WhatsApp Images/Private",
                 new String[]{"png", "png", "jpg"});
         List<File> imagesSent = mStore.getFiles(Environment.getExternalStorageDirectory().getAbsolutePath() + "/WhatsApp/Media/WhatsApp Images/Sent",

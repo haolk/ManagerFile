@@ -20,10 +20,6 @@ public class Store {
         this.context = context;
     }
 
-    public String getExternalStoreDirectory() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath();
-    }
-
     public List<File> getFiles(String dir) {
         return getFiles(dir, null);
     }
@@ -55,5 +51,10 @@ public class Store {
             File file = new File(path);
             file.delete();
         }
+    }
+
+    public String getReadableSize(File file) {
+        long length = file.length();
+        return SizeUnit.readableSizeUnit(length);
     }
 }
