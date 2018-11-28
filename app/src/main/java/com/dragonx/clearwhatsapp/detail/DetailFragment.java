@@ -1,19 +1,55 @@
 package com.dragonx.clearwhatsapp.detail;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v4.content.FileProvider;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
+import android.widget.TextView;
 
+import com.dragonx.clearwhatsapp.Helper;
 import com.dragonx.clearwhatsapp.R;
 
-public class DetailFragment extends Fragment {
-    @Nullable
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.ViewById;
+
+import java.io.File;
+import java.util.ArrayList;
+
+@EFragment(R.layout.fragment_detail)
+public class DetailFragment extends Fragment implements FilesAdapter.OnFileItemListener {
+
+    @FragmentArg
+    ArrayList<FileItem> fileItems;
+
+    @ViewById(R.id.rvData)
+    RecyclerView rvData;
+    @ViewById(R.id.tvNoData)
+    TextView tvNoData;
+
+    @AfterViews
+    void afterViews() {
+        if (fileItems != null && fileItems.size() > 0) {
+            FilesAdapter filesAdapter = new FilesAdapter(getContext());
+            filesAdapter.setFiles(fileItems);
+            rvData.setLayoutManager(new LinearLayoutManager(getContext()));
+            rvData.setAdapter(filesAdapter);
+            filesAdapter.setListener(this);
+        } else {
+            tvNoData.setVisibility(View.VISIBLE);
+            rvData.setVisibility(View.GONE);
+        }
+
+    }
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+    public void onClick(File file) {
+
     }
 }

@@ -20,4 +20,5 @@
     <string name="manage_files">Manage Files</string>
     <string name="databases">Databases</string>
     <string name="manage_databases">Manage Databases</string>
+    <string name="no_data">No Cleanable Content</string>
 </resources>

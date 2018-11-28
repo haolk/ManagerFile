@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dragonx.clearwhatsapp.R;
+import com.dragonx.clearwhatsapp.SizeUnit;
 import com.dragonx.clearwhatsapp.Store;
 
 import java.io.File;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public class FilesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<File> mFiles;
+    private List<FileItem> mFiles;
     private OnFileItemListener mListener;
     private Store mStorage;
 
@@ -35,25 +36,18 @@ public class FilesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final File file = mFiles.get(position);
+        final FileItem file = mFiles.get(position);
         FileViewHolder fileViewHolder = (FileViewHolder) holder;
         fileViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onClick(file);
-            }
-        });
-        fileViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                mListener.onLongClick(file);
-                return true;
+                mListener.onClick(new File(file.getPath()));
             }
         });
         fileViewHolder.mName.setText(file.getName());
         fileViewHolder.mIcon.setImageResource(R.drawable.ic_file_primary_24dp);
         fileViewHolder.mSize.setVisibility(View.VISIBLE);
-        fileViewHolder.mSize.setText(mStorage.getReadableSize(file));
+        fileViewHolder.mSize.setText(SizeUnit.readableSizeUnit(file.getSize()));
     }
 
     @Override
@@ -61,7 +55,7 @@ public class FilesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return mFiles != null ? mFiles.size() : 0;
     }
 
-    public void setFiles(List<File> files) {
+    public void setFiles(List<FileItem> files) {
         mFiles = files;
     }
 
@@ -85,7 +79,5 @@ public class FilesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     public interface OnFileItemListener {
         void onClick(File file);
-
-        void onLongClick(File file);
     }
 }

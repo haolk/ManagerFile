@@ -1,11 +1,12 @@
 package com.dragonx.clearwhatsapp;
 
 import android.content.Context;
-import android.os.Environment;
+
+import com.dragonx.clearwhatsapp.detail.FileItem;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,11 +21,11 @@ public class Store {
         this.context = context;
     }
 
-    public List<File> getFiles(String dir) {
+    public List<FileItem> getFiles(String dir) {
         return getFiles(dir, null);
     }
 
-    public List<File> getFiles(String dir, final String[] matchRegex) {
+    public List<FileItem> getFiles(String dir, final String[] matchRegex) {
         File file = new File(dir);
         File[] files;
         if (matchRegex != null) {
@@ -43,12 +44,18 @@ public class Store {
         } else {
             files = file.listFiles();
         }
-        return files != null ? Arrays.asList(files) : null;
+        List<FileItem> fileItems = new ArrayList<>();
+        if (files != null && files.length > 0) {
+            for (File file1 : files) {
+                fileItems.add(new FileItem(file1.getAbsolutePath(), file1.getName(), file1.length()));
+            }
+        }
+        return fileItems;
     }
 
-    public void deleteFiles(String[] paths) {
-        for (String path : paths) {
-            File file = new File(path);
+    public void deleteFiles(List<FileItem> paths) {
+        for (FileItem path : paths) {
+            File file = new File(path.getPath());
             file.delete();
         }
     }
@@ -56,5 +63,10 @@ public class Store {
     public String getReadableSize(File file) {
         long length = file.length();
         return SizeUnit.readableSizeUnit(length);
+    }
+
+    public double getSize(File file, SizeUnit unit) {
+        long length = file.length();
+        return (double) length / (double) unit.inBytes();
     }
 }

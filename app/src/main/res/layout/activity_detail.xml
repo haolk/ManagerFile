@@ -11,7 +11,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabBackground="@drawable/selector_tab" />
+        app:tabBackground="@drawable/selector_tab"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="fixed" />
 
     <View
         android:id="@+id/viewLine"

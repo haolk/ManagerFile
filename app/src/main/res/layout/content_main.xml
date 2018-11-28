@@ -100,8 +100,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/bg_button_clear"
         android:padding="5dp"
         android:text="@string/clear_junk"
@@ -248,7 +249,7 @@
                 android:textSize="15sp" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/rlPhotoContainer"
+                android:id="@+id/cslPhotoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvChartHeader"
@@ -349,12 +350,12 @@
                 android:id="@+id/viewPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/rlPhotoContainer"
+                android:layout_below="@id/cslPhotoContainer"
                 android:layout_marginTop="8dp"
                 android:background="#d6d6d6" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/rlVideoContainer"
+                android:id="@+id/cslVideoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewPhoto"
@@ -455,12 +456,12 @@
                 android:id="@+id/viewVideo"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/rlVideoContainer"
+                android:layout_below="@id/cslVideoContainer"
                 android:layout_marginTop="8dp"
                 android:background="#d6d6d6" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/rlAudioContainer"
+                android:id="@+id/cslAudioContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewVideo"
@@ -561,12 +562,12 @@
                 android:id="@+id/viewAudio"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/rlAudioContainer"
+                android:layout_below="@id/cslAudioContainer"
                 android:layout_marginTop="8dp"
                 android:background="#d6d6d6" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/rlFileContainer"
+                android:id="@+id/cslFileContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewAudio"
@@ -667,12 +668,12 @@
                 android:id="@+id/viewFile"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/rlFileContainer"
+                android:layout_below="@id/cslFileContainer"
                 android:layout_marginTop="8dp"
                 android:background="#d6d6d6" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/rlDatabaseContainer"
+                android:id="@+id/cslDatabaseContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewFile"
